@@ -28,21 +28,21 @@ function config() {
   var remindWeekTitle = config_sheet['remindWeekTitle'];
   var bikePlace = config_sheet['bikePlace'];
 
-  Logger.log(runLeader)
-  Logger.log(swimLeader)
-  Logger.log(bikeLeader)
-  Logger.log(sendMember)
-  Logger.log(title)
-  Logger.log(nextdayTitle)
-  Logger.log(nextweekTitle)
-  Logger.log(nextBikeTitle)
-  Logger.log(bikeFormDead)
-  Logger.log(runMessage)
-  Logger.log(bikeMessage)
-  Logger.log(dayMenuLink)
-  Logger.log(emptyWeekMenu)
-  Logger.log(remindWeekTitle)
-  Logger.log(bikePlace)
+  // Logger.log(runLeader)
+  // Logger.log(swimLeader)
+  // Logger.log(bikeLeader)
+  // Logger.log(sendMember)
+  // Logger.log(title)
+  // Logger.log(nextdayTitle)
+  // Logger.log(nextweekTitle)
+  // Logger.log(nextBikeTitle)
+  // Logger.log(bikeFormDead)
+  // Logger.log(runMessage)
+  // Logger.log(bikeMessage)
+  // Logger.log(dayMenuLink)
+  // Logger.log(emptyWeekMenu)
+  // Logger.log(remindWeekTitle)
+  // Logger.log(bikePlace)
   
   return{
     runLeader,
