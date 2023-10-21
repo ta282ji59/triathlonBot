@@ -37,4 +37,5 @@ function message(title){
   }
   var lastMessage = "以上です。<br>何か質問等がありましたら私まで連絡してください。<br><br>--------------------------<br>"+member[triger_number].belongs + "<br>" + member[triger_number].grade + " " + member[triger_number].name + "<br>email: " + member[triger_number].address + "<br>--------------------------<br><br>";
 
+
 }
