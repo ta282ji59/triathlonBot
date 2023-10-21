@@ -3,5 +3,3 @@ function sheet(sheetTitle) {
   const sheet = spreadsheet.getSheetByName(sheetTitle);
   return sheet;
 }
-
-
