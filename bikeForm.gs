@@ -21,7 +21,7 @@ function formCreate() {
     ]);
   
   var participantStyle = form.addCheckboxItem();
-  participantStyle.setTitle("バイク練")
+  participantStyle.setTitle("バイクの使用")
     .setChoices([
       participantStyle.createChoice("部のバイクで参加")
     ]);
@@ -47,7 +47,7 @@ function renameSheet(){
   for (var i = 0; i < sheets.length; i++) {
     var sheetName = sheets[i].getName();
     if (sheetName.includes("フォームの回答")) {
-      sheets[i].setName(menu[2].date);
+      sheets[i].setName(menu[3].date);
       break;
     }
   }

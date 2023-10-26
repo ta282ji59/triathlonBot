@@ -12,9 +12,6 @@ function about_config() {
     config_sheet[Name] = Value;
   }
 
-  var runLeader =config_sheet['runLeader'];
-  var swimLeader =config_sheet['swimLeader'];
-  var bikeLeader =config_sheet['bikeLeader'];
   var sendMember = config_sheet['sendMember'];
   var title = config_sheet['Title'];
   var nextdayTitle = config_sheet['nextdayTitle'];
@@ -29,9 +26,6 @@ function about_config() {
   var bikePlace = config_sheet['bikePlace'];
   
   return{
-    runLeader,
-    swimLeader,
-    bikeLeader,
     sendMember,
     title,
     nextdayTitle,

@@ -8,14 +8,14 @@ function about_menu() {
   for (let i = 1; i < data.length; i++) {
     data[i][0] = Utilities.formatDate(new Date(data[i][0]), 'Asia/Tokyo', 'yyyy-MM-dd');
     if (today == data[i][0]) {
-      today_point = i+1;
+      today_point = i;
     }
     if(i==(today_point+11))break;
   }
 
   var menu_list=[];
-  for(let i=0; i<10; i++){
-    let new_i=today_point+i;
+  for(let i=0; i<15; i++){
+    let new_i=i+today_point;
     menu_list[i] = {
       date: data[new_i][0],
       day: data[new_i][1],
