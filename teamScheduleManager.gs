@@ -6,16 +6,18 @@ const menu = about_menu();
 function oneWeek_menu() {
   var count_start = -1;
   var count_end = -1;
-
+  Logger.log(menu.length)
   for (var i = 0; i < menu.length; i++) {
     if (menu[i].day === "月" && count_start == -1) {
       count_start = i;
     }
     else if (menu[i].day === "日" && count_start !== -1) {
       count_end = i + 1;
-      break;
     }
+    if(count_start!=-1 && count_end!=-1)break;
   }
+  Logger.log(count_start)
+  Logger.log(count_end)
   if (count_start !== -1 && count_end !== -1) {
     return {
       count_start,
@@ -128,7 +130,8 @@ function tomorrow_detail() {
       }
     }
     message += "<br>"
-    if (menu[i].event != "イベント") {
+    
+    if (menu[i].event=="ラン" || menu[i].event == "スイム" || menu[i].event == "バイク") {
       var place = menu[i].place;
       if (menu[i].event == "バイク") {
         place = config.bikePlace;
@@ -146,9 +149,13 @@ function tomorrow_detail() {
       }
       message += "-------------------------<br><br>"
     }
+
+    else if(menu[i].event=="大会" || menu[i].event == "イベント"){
+      message += "詳しい内容は別途送られているメール等でご確認ください。<br><br>"
+    }
+
   }
   message += whosMail("競技部長")
-
   return message;
 }
 
@@ -176,9 +183,10 @@ function remind_daily_detail() {
   var checkCount = 0;
 
   message += "<table border='1' style='border-collapse: collapse'><tbody><tr><td>日にち</td><td>内容</td><td>エラー原因①</td><td>エラー原因②</td><td>エラー原因③</td><td>エラー原因④</td></tr>"
-  for (let i = 0; i <= oneWeek_menu().count_end; i++) {
+  for (let i = 0; i <= 10; i++) {
+    if(i>=1 && menu[i].day=="月")break;
     var missCount = 0;
-    if (menu[i].event == "休み" || menu[i].event == "イベント"){
+    if (menu[i].event == "休み" || menu[i].event == "イベント" || menu[i].event == "大会"){
       message += "<tr><td>" + menu[i].date + "(" + menu[i].day + ")</td>"
       message += "<td>" + menu[i].event + "</td>"
       message += "<td>問題なし</td></tr>"
