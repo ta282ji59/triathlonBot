@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: red;
+    }
+
+    h2 {
+      display: inline-block;
+      padding: 0.4em 1.0em;
+      font-family: 'Noto Serif JP', serif;
+      color: #494949;
+      background: #f4f4f4;
+      border-left: solid 5px grey;
+      border-right: solid 5px grey;
+      border-bottom: solid 3px #d7d7d7;
+      margin-bottom: 5px;
+    }
+  </style>
+  <link href="https://web-ext.u-aizu.ac.jp/circles/triathlon/css/common.css" rel="stylesheet">
+</head>
+
+<body>
+  <h1>メニューアーカイブ</h1>
+  <table border="1">
+    <p>こちらをクリックすると見たい月の初日に移動することができます。</p>
+    <tr>
+      <td><a href="#2024_1">2024/1/7~2024/1/31 </a></td>
+      <td><a href="#2024_2">2024/2/1~2024/2/29 </a></td>
+      <td><a href="#2024_3">2024/3/1~2024/3/31 </a></td>
+      <td><a href="#2024_4">2024/4/1~2024/4/30 </a></td>
+    </tr>
+    <tr>
+      <td><a href="#2024_5">2024/5/1~2024/5/31 </a></td>
+      <td><a href="#2024_6">2024/6/1~2024/6/30 </a></td>
+      <td><a href="#2024_7">2024/7/1~2024/7/31 </a></td>
+      <td><a href="#2024_8">2024/8/1~2024/8/31 </a></td>
+    </tr>
+    <tr>
+      <td><a href="#2024_9">2024/9/1~2024/9/30 </a></td>
+      <td><a href="#2024_10">2024/10/1~2024/10/31 </a></td>
+      <td><a href="#2024_11">2024/11/1~2024/11/30 </a></td>
+      <td><a href="#2024_12">2024/12/1~2024/12/31 </a></td>
+    </tr>
+  </table>
+  <? for (var i = 0; i < menuData.length; i++) { ?>
+  <?!= menuData[i][0] ?>
+  <? } ?>
+</body>
+
+</html>
