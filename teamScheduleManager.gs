@@ -183,7 +183,7 @@ function remind_daily_detail() {
   var checkCount = 0;
 
   message += "<table border='1' style='border-collapse: collapse'><tbody><tr><td>日にち</td><td>内容</td><td>エラー原因①</td><td>エラー原因②</td><td>エラー原因③</td><td>エラー原因④</td></tr>"
-  for (let i = 0; i <= 10; i++) {
+  for (let i = 0; i <= menu.length; i++) {
     if(i>=1 && menu[i].day=="月")break;
     var missCount = 0;
     if (menu[i].event == "休み" || menu[i].event == "イベント" || menu[i].event == "大会"){
