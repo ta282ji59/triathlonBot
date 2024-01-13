@@ -5,8 +5,7 @@ function everyDayMail() {
   tomorrow.setDate(tomorrow.getDate() + 1);
   tomorrow = tomorrow.toISOString().slice(0, 10);
   var checkEvent;
-  // for (let i = 0; i < oneWeek_menu().count_end; i++) {
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < menu.length; i++) {
     if (menu[i].date == tomorrow) {
       checkEvent = menu[i].event;
       break
@@ -58,7 +57,7 @@ function bikeMail() {
   threeDays.setDate(threeDays.getDate() + 3);
   threeDays = threeDays.toISOString().slice(0, 10);
   var checkEvent = "";
-  for (let i = 1; i < 10; i++) {
+  for (let i = 1; i < menu.length; i++) {
     if(menu[0].date==menu[i].date) continue;
     if (menu[i].date == threeDays && menu[i].event == "バイク") {
       checkEvent = menu[i].event;
