@@ -179,42 +179,54 @@ function nextWeek_detail() {
 
 /*リマインドメール内容を表示する関数*/
 function remind_daily_detail() {
-  var message = "パートリーダー及び、メールbot管理者に連絡します。<br>練習メニューのスプレッドシートに記入漏れが一部あるので連絡いたします。<br><br>";
-  var checkCount = 0;
+    var message = "パートリーダーに連絡します。<br>練習メニューのスプレッドシートに記入漏れが一部あるので連絡いたします。<br><br>";
+    var checkCount = 0;
 
-  message += "<table border='1' style='border-collapse: collapse'><tbody><tr><td>日にち</td><td>内容</td><td>エラー原因①</td><td>エラー原因②</td><td>エラー原因③</td><td>エラー原因④</td></tr>"
-  
-  var mondayCount = 0;
-  for (let i = 1; i < menu.length; i++) {
-    if(menu[0].day == menu[i].day)continue;//その日のメニューの内容を注意してももう遅いからスキップ
+    message_table = "<table border='1' style='border-collapse: collapse'><tbody><tr><td>日にち</td><td>内容</td><td>エラー原因(1)</td>"
+    message_sub = "";
+
+    var mondayCount = 0;
+    var rowErrorCount = 0;
+    for (let i = 1; i < menu.length; i++) {
+        let onceErrorCheck = 0;
+        if (menu[0].day == menu[i].day) continue;//その日のメニューの内容を注意してももう遅いからスキップ
+
+        if (menu[0].day == "土" || menu[0].day == "日") {
+            if (menu[i].day == "月" && menu[i].day != menu[i - 1].day) mondayCount++;
+            if (mondayCount == 2) break;
+        }
+        else {
+            if (i >= 1 && menu[i].day == "月") break;
+        }
+        var missCount = 0;
+        if (menu[i].event == "休み" || menu[i].event == "イベント" || menu[i].event == "大会") {
+            message_sub += "<tr><td>" + menu[i].date + "(" + menu[i].day + ")</td>"
+            message_sub += "<td>" + menu[i].event + "</td>"
+            message_sub += "<td>問題なし</td></tr>"
+        }
+        else {
+            message_sub += "<tr><td>" + menu[i].date + "(" + menu[i].day + ")</td>"
+            message_sub += "<td>" + menu[i].event + "</td>"
+            if (menu[i].event == "") { message_sub += "<td style='color: red;'>" + "C列目" + "</td>"; missCount++; checkCount++;onceErrorCheck++; }
+            if (menu[i].detail == "" || menu[i].detail == "未定") { message_sub += "<td style='color: red;'>" + "D列目" + "</td>"; missCount++; checkCount++;onceErrorCheck++; }
+            if (menu[i].time == "" || menu[i].time == "00:00") { message_sub += "<td style='color: red;'>" + "E列目" + "</td>"; missCount++; checkCount++;onceErrorCheck++; }
+            if (menu[i].place == "" || menu[i].place == "未定") { message_sub += "<td style='color: red;'>" + "F列目" + "</td>"; missCount++; checkCount++;onceErrorCheck++; }
+            if (missCount == 0) { message_sub += "<td>問題なし</td>" }
+        }
+        message_sub += "</tr>"
+        if(onceErrorCheck>rowErrorCount)rowErrorCount = onceErrorCheck;
+    }
     
-    if(menu[0].day == "土" || menu[0].day == "日"){
-      if(menu[i].day == "月" && menu[i].day != menu[i-1].day)mondayCount++;
-      if(mondayCount == 2)break;
+    for(let i=0;i<(rowErrorCount-1);i++){
+        message_table += "<td>エラー原因("+ (i+2) +")</td>"
     }
-    else{
-      if(i>=1 && menu[i].day=="月")break;
-    }
-    var missCount = 0;
-    if (menu[i].event == "休み" || menu[i].event == "イベント" || menu[i].event == "大会"){
-      message += "<tr><td>" + menu[i].date + "(" + menu[i].day + ")</td>"
-      message += "<td>" + menu[i].event + "</td>"
-      message += "<td>問題なし</td></tr>"
-    }
-    else{
-      message += "<tr><td>" + menu[i].date + "(" + menu[i].day + ")</td>"
-      message += "<td>" + menu[i].event + "</td>"
-      if (menu[i].event == "") { message += "<td style='color: red;'>" + "C列目" + "</td>"; missCount++; checkCount++; }
-      if (menu[i].detail == "" || menu[i].detail == "未定") { message += "<td style='color: red;'>" + "D列目" + "</td>"; missCount++; checkCount++; }
-      if (menu[i].time == "" || menu[i].time == "00:00") { message += "<td style='color: red;'>" + "E列目" + "</td>"; missCount++; checkCount++; }
-      if (menu[i].place == "" || menu[i].place == "未定") { message += "<td style='color: red;'>" + "F列目" + "</td>"; missCount++; checkCount++; }
-      if (missCount == 0) {message += "<td>問題なし</td>"}
-    }
-    message += "</tr>"
-  }
-  message += "</tbody></table>"
-  Logger.log(message)
-  return { message, checkCount };
+    message_table += "</tr>"
+
+    message_sub += "</tbody></table>"
+    message += message_table;
+    message += message_sub;
+    // console.log(message)
+    return { message, checkCount };
 }
 
 /*リマインドメール内容を表示する関数*/
