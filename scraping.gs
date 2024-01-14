@@ -25,7 +25,8 @@ function sheets(sheetTitle) {
 }
 
 function myFunction() {
-  var url = 'https://web-ext.u-aizu.ac.jp/circles/triathlon/practice2.html';
+  const config = about_config();
+  var url = config.dayMenuLink
   var html = scraping(url);
 
   var $ = Cheerio.load(html);
@@ -48,4 +49,5 @@ function myFunction() {
   var nextRow = lastRow + 1;
 
   archiveSheet.getRange(nextRow, 1).setValue(menuContent);
+  Logger.log(menuContent)
 }
