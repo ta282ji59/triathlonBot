@@ -29,7 +29,7 @@ function oneWeek_menu() {
   }
 }
 
-/*menuの明日のシートを取得する関数 */
+/*menuの明日のシート()を取得する関数 */
 function tomorrow_menu() {
   var count_start = -1;
   var count_end = -1;
