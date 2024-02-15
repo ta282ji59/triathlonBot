@@ -3,7 +3,9 @@
 下記に簡単にシステムの概要を説明します。
 
 ## 自動システムの概要
-<img width="1440" alt="スクリーンショット 2024-02-15 11 00 46" src="https://github.com/ta282ji59/triathlonBot/assets/86834007/a47edeb2-2ce2-438e-8ab9-bec188b891fc">
+
+![304926906-a47edeb2-2ce2-438e-8ab9-bec188b891fcのコピー](https://github.com/ta282ji59/triathlonBot/assets/86834007/d2e4a987-b449-4c2f-9066-695e0f4352b5)
+
 ◯自動化したもの
 <ul>
   <li>練習メニューのサイト表示</li>
