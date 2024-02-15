@@ -4,7 +4,8 @@
 
 ## 自動システムの概要
 
-![304926906-a47edeb2-2ce2-438e-8ab9-bec188b891fcのコピー](https://github.com/ta282ji59/triathlonBot/assets/86834007/d2e4a987-b449-4c2f-9066-695e0f4352b5)
+![304926906-a47edeb2-2ce2-438e-8ab9-bec188b891fcのコピー](https://github.com/ta282ji59/triathlonBot/assets/86834007/2170b9ff-cdd8-4de5-b756-58bed17be319)
+
 
 ◯自動化したもの
 <ul>
